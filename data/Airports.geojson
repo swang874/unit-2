@@ -1,0 +1,425 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 84846639,
+        "2008": 90039280,
+        "2010": 89331622,
+        "2012": 94956643,
+        "2014": 96178899,
+        "2016": 104171935,
+        "2018": 107394029,
+        "ID": 1,
+        "Airport": "Hartsfield?Jackson Atlanta International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -84.4277,
+          33.6407
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 48654770,
+        "2008": 55937289,
+        "2010": 73948113,
+        "2012": 81929359,
+        "2014": 86128270,
+        "2016": 94393454,
+        "2018": 100983290,
+        "ID": 2,
+        "Airport": "Beijing Capital International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.6031,
+          40.0799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 28360723,
+        "2008": 37441440,
+        "2010": 47180628,
+        "2012": 57684550,
+        "2014": 70475636,
+        "2016": 83654250,
+        "2018": 89149387,
+        "ID": 3,
+        "Airport": "Dubai International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          55.3657,
+          25.2532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 61041066,
+        "2008": 59497539,
+        "2010": 59070127,
+        "2012": 63688121,
+        "2014": 70663265,
+        "2016": 80921527,
+        "2018": 87534384,
+        "ID": 4,
+        "Airport": "Los Angeles International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.4085,
+          33.9416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 65810672,
+        "2008": 66754829,
+        "2010": 64211074,
+        "2012": 67788722,
+        "2014": 72826565,
+        "2016": 79699762,
+        "2018": 87131973,
+        "ID": 5,
+        "Airport": "Tokyo Haneda Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          139.7798,
+          35.5494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 77028134,
+        "2008": 69353876,
+        "2010": 66774738,
+        "2012": 66834931,
+        "2014": 69999010,
+        "2016": 78327479,
+        "2018": 83339186,
+        "ID": 6,
+        "Airport": "O'Hare International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -87.9073,
+          41.9742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 67530197,
+        "2008": 67056379,
+        "2010": 65884143,
+        "2012": 70037417,
+        "2014": 73408489,
+        "2016": 75715474,
+        "2018": 80126320,
+        "ID": 7,
+        "Airport": "London Heathrow Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -0.4543,
+          51.47
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 43857908,
+        "2008": 47857746,
+        "2010": 50348960,
+        "2012": 56064248,
+        "2014": 63121786,
+        "2016": 70314462,
+        "2018": 74517402,
+        "ID": 8,
+        "Airport": "Hong Kong International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.9185,
+          22.308
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 26789125,
+        "2008": 28230017,
+        "2010": 40578621,
+        "2012": 44880164,
+        "2014": 51687894,
+        "2016": 66002414,
+        "2018": 74006331,
+        "ID": 9,
+        "Airport": "Shanghai Pudong International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          121.8083,
+          31.1443
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 56849567,
+        "2008": 60874681,
+        "2010": 58167062,
+        "2012": 61611934,
+        "2014": 63813756,
+        "2016": 65933145,
+        "2018": 72229723,
+        "ID": 10,
+        "Airport": "Paris-Charles de Gaulle Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.5479,
+          49.0097
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 46065719,
+        "2008": 47430019,
+        "2010": 45211749,
+        "2012": 51035590,
+        "2014": 54978023,
+        "2016": 63625534,
+        "2018": 71053157,
+        "ID": 11,
+        "Airport": "Amsterdam Airport Schiphol"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          4.7683,
+          52.3105
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 16500000,
+        "2008": 23181090,
+        "2010": 38531607,
+        "2012": 34211608,
+        "2014": 39752819,
+        "2016": 55631385,
+        "2018": 69900938,
+        "ID": 12,
+        "Airport": "Indira Gandhi International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          77.1,
+          28.5562
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 26222037,
+        "2008": 33444814,
+        "2010": 40975673,
+        "2012": 48548430,
+        "2014": 54780346,
+        "2016": 59732147,
+        "2018": 69769497,
+        "ID": 13,
+        "Airport": "Guangzhou Baiyun International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          113.308,
+          29.3959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 52810683,
+        "2008": 53467450,
+        "2010": 53009221,
+        "2012": 57520001,
+        "2014": 59566132,
+        "2016": 60786937,
+        "2018": 69510269,
+        "ID": 14,
+        "Airport": "Frankfurt Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5622,
+          50.0379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 60226138,
+        "2008": 57093187,
+        "2010": 56906610,
+        "2012": 58591842,
+        "2014": 63554402,
+        "2016": 65670697,
+        "2018": 69112607,
+        "ID": 15,
+        "Airport": "Dallas/Fort Worth International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -97.0403,
+          32.8998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 28360723,
+        "2008": 30166816,
+        "2010": 33605579,
+        "2012": 39154375,
+        "2014": 45662322,
+        "2016": 57849814,
+        "2018": 68350784,
+        "ID": 16,
+        "Airport": "Seoul Incheon International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          126.4407,
+          37.4602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 23261878,
+        "2008": 26364017,
+        "2010": 32165817,
+        "2012": 44992420,
+        "2014": 56767108,
+        "2016": 60248741,
+        "2018": 68192683,
+        "ID": 17,
+        "Airport": "Istanbul Atat?rk Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.8104,
+          40.983
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 30583957,
+        "2008": 32172114,
+        "2010": 44355998,
+        "2012": 57730732,
+        "2014": 57221169,
+        "2016": 54969536,
+        "2018": 66908159,
+        "ID": 18,
+        "Airport": "Soekarno?Hatta International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          106.6537,
+          -6.1275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 35033083,
+        "2008": 37694824,
+        "2010": 42038777,
+        "2012": 51181804,
+        "2014": 54093000,
+        "2016": 58698000,
+        "2018": 65628000,
+        "ID": 19,
+        "Airport": "Singapore Changi Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.9915,
+          1.3644
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "2006": 47325016,
+        "2008": 51245334,
+        "2010": 52209377,
+        "2012": 53156278,
+        "2014": 53472514,
+        "2016": 58266515,
+        "2018": 64494613,
+        "ID": 20,
+        "Airport": "Denver International Airport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -104.6737,
+          39.8561
+        ]
+      }
+    }
+  ]
+}
