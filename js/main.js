@@ -1,4 +1,4 @@
-// Scriptsheet by Shujin Wang, 2020
+//Scriptsheet by Shujin Wang, 2020
 //declare vars globally so all functions have access
 var map;
 var minValue;
@@ -52,6 +52,16 @@ function calcPropRadius(attValue) {
     return radius;
 };
 
+//PopupContent constructor function
+function PopupContent(properties, attribute){
+    this.properties = properties;
+    this.attribute = attribute;
+    this.passenger = this.properties[attribute];
+
+    //add airport and formatted attribute to popup content string
+    this.formatted = "<p><b>Airport:</b> " + this.properties.Airport + "</p><p><b>Passenger Traffic in " + this.attribute + ":</b> " + this.passenger + "</p>";
+};
+
 //function to convert markers to circle markers
 function pointToLayer(feature, latlng, attributes){
     //Step 4: Determine which attribute to visualize with proportional symbols
@@ -78,13 +88,11 @@ function pointToLayer(feature, latlng, attributes){
     //create circle marker layer
     var layer = L.circleMarker(latlng, options);
 
-    //build popup content string starting with airport
-    var popupContent = "<p><b>Airport:</b> " + feature.properties.Airport + "</p>";
-    //add formatted attribute to popup content string
-    popupContent += "<p><b>Passenger Traffic in " + attribute + ":</b> " + feature.properties[attribute] + "</p>";
+    //create new popup content
+    var popupContent = new PopupContent(feature.properties, attribute)
 
     //bind the popup to the circle marker
-    layer.bindPopup(popupContent, {
+    layer.bindPopup(popupContent.formatted, {
         offset: new L.Point(0,-options.radius)
     });
 
@@ -104,8 +112,31 @@ function createPropSymbols(data, attributes){
 
 //STEP 1: create new sequence controls
 function createSequenceControls(attributes){
-    //create range input element (slider)
-    $('#panel').append('<input class="range-slider" type="range">');
+    var SequenceControl = L.Control.extend({
+        options: {
+            position: 'bottomleft'
+        },
+
+        onAdd: function(){
+            //create the control container div with a particular class name
+            var container = L.DomUtil.create('div', 'sequence-control-container');
+
+            ///create range input element (slider)
+            $(container).append('<input class="range-slider" type="range">');
+
+            //STEP 2: create step buttons
+            $(container).append('<button class="step" id="reverse">Reverse</button>');
+            $(container).append('<button class="step" id="forward">Forward</button>');
+
+            //disable any mouse event listeners for the container
+            L.DomEvent.disableClickPropagation(container);
+
+            return container;
+        }
+    });
+
+    map.addControl(new SequenceControl());
+
     //set slider attributes
     $('.range-slider').attr({
         max: 6,
@@ -114,9 +145,6 @@ function createSequenceControls(attributes){
         step: 1
     });
 
-    //STEP 2: create step buttons
-    $('#panel').append('<button class="step" id="reverse">Reverse</button>');
-    $('#panel').append('<button class="step" id="forward">Forward</button>');
     //replace button content with images
     $('#reverse').html('<img src="img/reverse.png">');
     $('#forward').html('<img src="img/forward.png">');
@@ -155,6 +183,25 @@ function createSequenceControls(attributes){
     });
 };
 
+function createLegend(attributes){
+    var LegendControl = L.Control.extend({
+        options: {
+            position: 'bottomright'
+        },
+
+        onAdd: function () {
+            // create the control container with a particular class name
+            var container = L.DomUtil.create('div', 'legend-control-container');
+
+            //PUT YOUR SCRIPT TO CREATE THE TEMPORAL LEGEND HERE
+
+            return container;
+        }
+    });
+
+    map.addControl(new LegendControl());
+};
+
 //STEP 10: resize proportional symbols according to new attribute values
 function updatePropSymbols(attribute){
     map.eachLayer(function(layer){
@@ -167,15 +214,11 @@ function updatePropSymbols(attribute){
             var radius = calcPropRadius(props[attribute]);
             layer.setRadius(radius);
 
-            //add airport to popup content string
-            var popupContent = "<p><b>Airport:</b> " + props.Airport + "</p>";
-
-            //add formatted attribute to panel content string
-            popupContent += "<p><b>Passenger Traffic in " + attribute + ":</b> " + props[attribute] + "</p>";
+            var popupContent = new PopupContent(props, attribute);
 
             //update popup content
             popup = layer.getPopup();
-            popup.setContent(popupContent).update();
+            popup.setContent(popupContent.formatted).update();
         };
     });
 };
@@ -214,6 +257,7 @@ function getData(){
         //add proportional symbols and UI elements
         createPropSymbols(response, attributes);
         createSequenceControls(attributes);
+        createLegend(attributes);
     });
 };
 
