@@ -7,13 +7,15 @@ var dataStats = {};
 function createMap(){
     //create the map
     map = L.map('mapid', {
-        center: [0, 0],
+        center: [20, 0],
         zoom: 2
     });
 
     //add OSM base tilelayer
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+	      subdomains: 'abcd',
+	      maxZoom: 19
     }).addTo(map);
 
     //call getData function
@@ -64,7 +66,7 @@ function PopupContent(properties, attribute){
     this.passenger = this.properties[attribute];
 
     //add airport and formatted attribute to popup content string
-    this.formatted = "<p><b>Airport:</b> " + this.properties.Airport + "</p><p><b>Passenger Traffic in " + this.attribute + ":</b> " + this.passenger + "</p>";
+    this.formatted = "<p><h3>" + this.properties.Airport + "</h3></p><p><b>Passenger Traffic in " + this.attribute + ":</b> " + (this.passenger/100000).toFixed(2) + " million</p>";
 };
 
 //function to convert markers to circle markers
@@ -77,8 +79,8 @@ function pointToLayer(feature, latlng, attributes){
 
     //create marker options
     var options = {
-        fillColor: "#ff7800",
-        color: "#000",
+        fillColor: "#fcba03",
+        color: "#cc9702",
         weight: 1,
         opacity: 1,
         fillOpacity: 0.8
@@ -200,7 +202,7 @@ function createLegend(attributes){
             var container = L.DomUtil.create('div', 'legend-control-container');
 
             //add temporal legend div to container
-            $(container).append('<div id="temporal-legend">')
+            $(container).append('<div id="temporal-legend"><b>Passenger Traffic (million)</b></div>')
 
             //step 1: start attribute legend svg string
             var svg = '<svg id="attribute-legend" width="160px" height="60px">';
@@ -212,16 +214,16 @@ function createLegend(attributes){
             for (var i=0; i<circles.length; i++){
                 //step 3: assign the r and cy attributes
                 var radius = calcPropRadius(dataStats[circles[i]]);
-                var cy = 59 - radius;
+                var cy = 50 - radius;
 
                 //circle string
-                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="30"/>';
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#fcba03" fill-opacity="0.8" stroke="#cc9702" cx="40"/>';
 
                 //evenly space out labels
-                var textY = i * 20 + 20;
+                var textY = i * 15 + 25;
 
                 //text string
-                svg += '<text id="' + circles[i] + '-text" x="65" y="' + textY + '">' + Math.round(dataStats[circles[i]]*100)/100 + '</text>';
+                svg += '<text id="' + circles[i] + '-text" x="70" y="' + textY + '">' + Math.round(dataStats[circles[i]]/100000) + '</text>';
             };
 
             //close svg string

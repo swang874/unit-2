@@ -12,7 +12,7 @@
         "2016": 104171935,
         "2018": 107394029,
         "ID": 1,
-        "Airport": "Hartsfield?Jackson Atlanta International Airport"
+        "Airport": "Hartsfield-Jackson Atlanta International Airport"
       },
       "geometry": {
         "type": "Point",
@@ -348,7 +348,7 @@
         "2016": 60248741,
         "2018": 68192683,
         "ID": 17,
-        "Airport": "Istanbul Atat?rk Airport"
+        "Airport": "Istanbul Ataturk Airport"
       },
       "geometry": {
         "type": "Point",
@@ -369,7 +369,7 @@
         "2016": 54969536,
         "2018": 66908159,
         "ID": 18,
-        "Airport": "Soekarno?Hatta International Airport"
+        "Airport": "Soekarno-Hatta International Airport"
       },
       "geometry": {
         "type": "Point",
