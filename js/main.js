@@ -1,7 +1,7 @@
 //Scriptsheet by Shujin Wang, 2020
 //declare vars globally so all functions have access
 var map;
-var minValue;
+var dataStats = {};
 
 //Step 1: Create map
 function createMap(){
@@ -20,7 +20,7 @@ function createMap(){
     getData();
 };
 
-function calcMinValue(data){
+function calcStats(data){
     //create empty array to store all data values
     var allValues = [];
 
@@ -35,11 +35,16 @@ function calcMinValue(data){
         }
     }
 
-    //get minimum value of our array
-    var minValue = Math.min(...allValues)
+    //get min, max, mean stats for our array
+    dataStats.min = Math.min(...allValues);
+    dataStats.max = Math.max(...allValues);
 
-    return minValue;
-}
+    //calculate mean
+    var sum = allValues.reduce(function(a, b){
+        return a+b;
+    });
+    dataStats.mean = sum/allValues.length;
+};
 
 //calculate the radius of each proportional symbol
 function calcPropRadius(attValue) {
@@ -47,7 +52,7 @@ function calcPropRadius(attValue) {
     var minRadius = 5;
 
     //Flannery Appearance Compensation formula
-    var radius = 1.0083 * Math.pow(attValue/minValue,0.5715) * minRadius
+    var radius = 1.0083 * Math.pow(attValue/dataStats.min,0.5715) * minRadius
 
     return radius;
 };
@@ -183,6 +188,7 @@ function createSequenceControls(attributes){
     });
 };
 
+//function to create the legend
 function createLegend(attributes){
     var LegendControl = L.Control.extend({
         options: {
@@ -193,7 +199,36 @@ function createLegend(attributes){
             // create the control container with a particular class name
             var container = L.DomUtil.create('div', 'legend-control-container');
 
-            //PUT YOUR SCRIPT TO CREATE THE TEMPORAL LEGEND HERE
+            //add temporal legend div to container
+            $(container).append('<div id="temporal-legend">')
+
+            //step 1: start attribute legend svg string
+            var svg = '<svg id="attribute-legend" width="160px" height="60px">';
+
+            //array of circle names to base loop on
+            var circles = ["max", "mean", "min"];
+
+            //step 2: loop to add each circle and text to svg string
+            for (var i=0; i<circles.length; i++){
+                //step 3: assign the r and cy attributes
+                var radius = calcPropRadius(dataStats[circles[i]]);
+                var cy = 59 - radius;
+
+                //circle string
+                svg += '<circle class="legend-circle" id="' + circles[i] + '" r="' + radius + '"cy="' + cy + '" fill="#F47821" fill-opacity="0.8" stroke="#000000" cx="30"/>';
+
+                //evenly space out labels
+                var textY = i * 20 + 20;
+
+                //text string
+                svg += '<text id="' + circles[i] + '-text" x="65" y="' + textY + '">' + Math.round(dataStats[circles[i]]*100)/100 + '</text>';
+            };
+
+            //close svg string
+            svg += "</svg>";
+
+            //add attribute legend svg to container
+            $(container).append(svg);
 
             return container;
         }
@@ -252,8 +287,8 @@ function getData(){
         //create an attributes array
         var attributes = processData(response);
 
-        //calculate minimum data value
-        minValue = calcMinValue(response);
+        //calling our renames function
+        calcStats(response);
         //add proportional symbols and UI elements
         createPropSymbols(response, attributes);
         createSequenceControls(attributes);

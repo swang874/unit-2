@@ -41,8 +41,8 @@
 }
 
 .legend-control-container {
-    width: 350px;
-    height: 30px;
+    width: 150px;
+    height: 100px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px;
     border: solid gray 1px;
